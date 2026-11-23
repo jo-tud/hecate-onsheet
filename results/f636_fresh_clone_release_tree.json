@@ -1,0 +1,35 @@
+{
+ "R0": {
+  "auc": 0.8673552174046535,
+  "ref": 0.8673552174046535,
+  "ok": true
+ },
+ "R1": {
+  "head": "608b489b50306edaa16f429118bf3bca52ff2311",
+  "tracked_edits": false,
+  "inputs_equal_to_reference": {
+   "x": true,
+   "y": true,
+   "z": true,
+   "pos": true,
+   "neg": true
+  },
+  "forbidden_opens": [],
+  "ok": true
+ },
+ "R2": {
+  "auc": 0.9147707497181405,
+  "ref": 0.9147707497181405,
+  "ok": true
+ },
+ "verdict": "PASS",
+ "readings": {
+  "map_equal_to_stored": {
+   "frozen": true,
+   "S": true
+  },
+  "wall": {
+   "wall_s": 247
+  }
+ }
+}

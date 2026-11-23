@@ -1,0 +1,18 @@
+{
+ "about": "The reference window and the stored numbers run_window.sh must repeat. Stored numbers: 2D AUC of frozen hecate and of S on the VC3D render of this window, label ink px vs checked no-ink px (organisers' 20260918 labels), all mesh-valid px of the window. Source: results/f561_villa_render_4windows.json readings.per_window (the per-window values of the 4-window result) and results/f581_fresh_clone_one_window.json (the same two numbers repeated exactly from a fresh clone on 2026-11-08). The maps' array sha256 are those of the stored maps of that run.",
+ "segment": "20231210121321",
+ "r0": 1200,
+ "c0": 2800,
+ "size": 1600,
+ "tolerance": 0.005,
+ "stored_auc_2d": {"frozen": 0.8673552174046535, "S": 0.9147707497181405},
+ "stored_map_sha256": {"frozen": "65032b86d274a6cec96999ce0fad1e92dace76a8f6afb8d3971b566218537d2a",
+                       "S": "07bc1c13f50e783ea76adfed70bbb41d17b993f4690a77efd673075222fe3727"},
+ "inputs": {
+  "x": {"shape": [638, 500], "dtype": "float32", "sha256": "5cece8f209ecd0f52bf6621e03d315b97077d7cbcbcfa0196b571c11e4ffed23"},
+  "y": {"shape": [638, 500], "dtype": "float32", "sha256": "df939c658aeda1ef72757699e2773eb9326c35488ba459364302d0bfa7ffec11"},
+  "z": {"shape": [638, 500], "dtype": "float32", "sha256": "7bc59891af11a7348fd427a39c82a51aa9b61a9217fabd610bceb2ac64adb28d"},
+  "pos": {"shape": [12750, 9995], "dtype": "bool", "sha256": "33b8afa6e5bde17cb968d744e47c00a1c7c10dcbd7c271ce2de1d35db2f6d03a", "n": 3395090},
+  "neg": {"shape": [12750, 9995], "dtype": "bool", "sha256": "eb11d659b63667e1f83a0b689310dfe39ab7435a58c511aec9ba90c8456287e1", "n": 7648826}
+ }
+}

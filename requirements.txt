@@ -1,0 +1,7 @@
+# tested with CPython 3.12.13; torch from https://download.pytorch.org/whl/cu130
+numpy==2.2.6
+scipy==1.16.2
+zarr==3.2.1
+tifffile==2025.9.30
+pillow==11.3.0
+torch==2.12.1

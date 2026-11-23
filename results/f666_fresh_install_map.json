@@ -1,0 +1,138 @@
+{
+ "about": "The S map (probability_primary.npy of the ink-sdk profile hecate@9.6um-onsheet-s) from a fresh install, compared with the map of the interpreter that made the stored maps. Maps are 8-bit: max_step counts grey steps of 1/255; n_differ and byte_equal_share are counted on the stored float32 values.",
+ "first_bar": {
+  "date": "2026-11-13",
+  "bar": "the fresh-install map has the sha256 of the stored map (byte-equal)",
+  "result": "fail",
+  "window": "reference_window",
+  "sha256_stored": "f09b1979d351fc4b7d657862b8ef40d2a176370a9c41c7fa7164a88134ee3a27",
+  "sha256_fresh_install": "2782f5e9b824294a2963631fcf65f6cc51148c33a85d5d1c2c506990ff1fd529"
+ },
+ "numeric_bar": {
+  "set_before_the_run_on": "second_window",
+  "every_pixel_within_8bit_steps": 1,
+  "byte_equal_share_min": 0.99,
+  "pearson_r_min": 0.9999,
+  "result": "pass"
+ },
+ "reference_window": {
+  "segment": "20231210121321",
+  "rows": [
+   1200,
+   2800
+  ],
+  "cols": [
+   2800,
+   4400
+  ],
+  "scan": "PHerc. Paris 4, 20260411134726 (2.4 um, 78 keV) read at 9.6 um",
+  "shape_px": [
+   1600,
+   1600
+  ],
+  "stored_interpreter": {
+   "torch": "2.12.1+cu130",
+   "python": "3.12.13",
+   "device": "cuda",
+   "precision": "fp32",
+   "run_utc": "2026-11-13T11:42:34Z"
+  },
+  "fresh_install": {
+   "torch": "2.15.0+cu132",
+   "python": "3.14.5",
+   "device": "cuda",
+   "precision": "fp32",
+   "run_utc": "2026-11-13T21:23:45Z",
+   "venv_created_utc": "2026-11-13T19:55:52Z"
+  },
+  "ink_sdk": "2df3ab50decbb8998c199e0b70797c3d47408dcd",
+  "weights_sha256": "4b84fdf2f90cb369b254f04415d474bac8ab087a47022badd2d20fa32205b4f2",
+  "map_sha256": {
+   "stored_interpreter": "f09b1979d351fc4b7d657862b8ef40d2a176370a9c41c7fa7164a88134ee3a27",
+   "fresh_install": "2782f5e9b824294a2963631fcf65f6cc51148c33a85d5d1c2c506990ff1fd529"
+  },
+  "fresh_against_stored": {
+   "n_px": 2560000,
+   "n_differ": 7108,
+   "max_step": 1,
+   "byte_equal_share": 0.9972234375,
+   "pearson_r": 0.9999997050363686
+  },
+  "bars": {
+   "every_pixel_within_one_8bit_step": true,
+   "byte_equal_share_at_least_0_99": true,
+   "pearson_r_at_least_0_9999": true
+  },
+  "baseline_other_reading_direction": {
+   "n_px": 2560000,
+   "n_differ": 2413751,
+   "max_step": 242,
+   "byte_equal_share": 0.057128515625,
+   "pearson_r": 0.1342090241845817
+  },
+  "stored_map_repeated": {
+   "note": "the stored map was first made with the profile built into ink-sdk as a patch (results/f4015_ink_sdk_profile.json); this run repeats it with the card's infer line, ink-sdk at the commit below and the profile of the model page, in the stored interpreter",
+   "ink_sdk": "2df3ab50decbb8998c199e0b70797c3d47408dcd",
+   "torch": "2.12.1+cu130",
+   "python": "3.12.13",
+   "sha256": "f09b1979d351fc4b7d657862b8ef40d2a176370a9c41c7fa7164a88134ee3a27",
+   "equals_stored_map": true
+  }
+ },
+ "second_window": {
+  "segment": "20231012184424",
+  "rows": [
+   4000,
+   5600
+  ],
+  "cols": [
+   5200,
+   6800
+  ],
+  "scan": "PHerc. Paris 4, 20260411134726 (2.4 um, 78 keV) read at 9.6 um",
+  "shape_px": [
+   1600,
+   1600
+  ],
+  "stored_interpreter": {
+   "torch": "2.12.1+cu130",
+   "python": "3.12.13",
+   "device": "cuda",
+   "precision": "fp32",
+   "run_utc": "2026-11-14T00:30:23Z"
+  },
+  "fresh_install": {
+   "torch": "2.15.0+cu132",
+   "python": "3.14.5",
+   "device": "cuda",
+   "precision": "fp32",
+   "run_utc": "2026-11-14T00:32:54Z",
+   "venv_created_utc": "2026-11-13T21:42:30Z"
+  },
+  "ink_sdk": "2df3ab50decbb8998c199e0b70797c3d47408dcd",
+  "weights_sha256": "4b84fdf2f90cb369b254f04415d474bac8ab087a47022badd2d20fa32205b4f2",
+  "map_sha256": {
+   "stored_interpreter": "91819a66d63f81a902b2ffd8196622d076f3deadb27406208d83b12eb6bc7ac1",
+   "fresh_install": "ec40aee09684cb41cdf5caafd1b08d7ff5753bb48e9aa3f28a2c1aa084828682"
+  },
+  "fresh_against_stored": {
+   "n_px": 2560000,
+   "n_differ": 4929,
+   "max_step": 1,
+   "byte_equal_share": 0.998074609375,
+   "pearson_r": 0.9999997812857232
+  },
+  "bars": {
+   "every_pixel_within_one_8bit_step": true,
+   "byte_equal_share_at_least_0_99": true,
+   "pearson_r_at_least_0_9999": true
+  },
+  "baseline_other_reading_direction": {
+   "n_px": 2560000,
+   "n_differ": 2328072,
+   "max_step": 244,
+   "byte_equal_share": 0.090596875,
+   "pearson_r": 0.05577765536826023
+  }
+ }
+}

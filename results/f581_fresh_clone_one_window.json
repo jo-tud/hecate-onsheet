@@ -1,0 +1,53 @@
+{
+ "window": "20231210121321",
+ "arena": "PHercParis4 20260411134726 L2 9.6 um 78 keV, held-out seg 20231210121321, 1600 px window r1200 c2800",
+ "R0": {
+  "frozen_vc": 0.8673552174046535,
+  "ref": 0.8673552174046535,
+  "diff": 0.0,
+  "ok": true
+ },
+ "R1": {
+  "check": {
+   "inputs_sha_ok": true,
+   "image_ok": true,
+   "head": "f8ca8f524d4d637c687930d0f40b161e7560440c",
+   "tracked_files_edited": false,
+   "python": "3.12.13"
+  },
+  "steps_traced": [
+   "fetch",
+   "infer_S",
+   "infer_frozen",
+   "parity",
+   "render-own",
+   "score"
+  ],
+  "forbidden_opens": [],
+  "ok": true
+ },
+ "R2": {
+  "S_vc": 0.9147707497181405,
+  "ref": 0.9147707497181405,
+  "diff": 0.0,
+  "ok": true
+ },
+ "verdict": "PASS",
+ "readings": {
+  "P0_r": 0.9982684175443692,
+  "P0_r_ref": 0.9982684175443692,
+  "own_frozen": 0.8655335191560785,
+  "own_frozen_ref": 0.8655335191560785,
+  "own_S": 0.9114033146576319,
+  "own_S_ref": 0.9114033146576319,
+  "G": {
+   "auc3d": 0.829,
+   "auc2d": 0.799,
+   "bar3d": 0.807,
+   "bar2d": 0.759,
+   "sha_ok": true,
+   "ok": true
+  },
+  "sheets3_verdict_one_window": "SHOW"
+ }
+}

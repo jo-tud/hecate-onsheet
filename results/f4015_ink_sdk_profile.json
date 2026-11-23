@@ -1,0 +1,119 @@
+{
+ "ink_sdk": "2df3ab50decbb8998c199e0b70797c3d47408dcd",
+ "profile": "hecate@9.6um-onsheet-s",
+ "patch_sha256": "d114377c122e023016b00ea213064489c9d13d3506c26ad6a818512ada861d7c",
+ "criteria": {
+  "SAME_R": 0.9995,
+  "SAME_P99": 0.03,
+  "DIFF_R": 0.95,
+  "BYTE_EQ": 0.999
+ },
+ "runs": {
+  "P-S": {
+   "profile": "hecate@9.6um-onsheet-s",
+   "returncode": 0,
+   "seconds": 117.2,
+   "files": [
+    "INK_SDK_RECEIPT.json",
+    "preview.tif",
+    "probability.npy",
+    "probability_mean.npy",
+    "probability_primary.npy",
+    "probability_reverse.npy"
+   ]
+  },
+  "P-F": {
+   "profile": "hecate@9.6um",
+   "returncode": 0,
+   "seconds": 62.9,
+   "files": [
+    "INK_SDK_RECEIPT.json",
+    "preview.tif",
+    "probability.npy"
+   ]
+  }
+ },
+ "C1": {
+  "patched_head": "833c94e17bbc935fe108319c52b910e053980919",
+  "parent": "2df3ab50decbb8998c199e0b70797c3d47408dcd",
+  "models_rc": 0,
+  "n_profiles": 18,
+  "listed": true,
+  "doctor_rc": 0,
+  "doctor_line": [
+   "[verified] hecate@9.6um-onsheet-s"
+  ],
+  "verdict": "PASS"
+ },
+ "C2": {
+  "new_failures": [],
+  "verdict": "PASS",
+  "patched": "2 failed, 105 passed, 1 warning in 6.90s",
+  "main": "2 failed, 105 passed, 1 warning in 6.92s",
+  "failed_main": [
+   "tests/test_timesformer.py::test_full_sdk_pipeline_writes_reverse_map_and_receipt",
+   "tests/test_timesformer.py::test_reverse_only_battery_publishes_primary_maps_and_images"
+  ]
+ },
+ "receipt_primary": "reverse",
+ "primary_equals_reverse": true,
+ "support_px": 2559994,
+ "C3": {
+  "n_px": 2559994,
+  "r": 0.9999988510834867,
+  "p99d": 0.003921568393707275,
+  "maxd": 0.003921598196029663,
+  "mean_d": 4.2633372782042976e-05,
+  "shift": [
+   0,
+   0
+  ],
+  "r_at_best_shift": 0.999998849175645,
+  "byte_equal": 0.9891284901448988,
+  "r_roll": 0.012304626946568583,
+  "r_cross": 0.13421244001831642,
+  "verdict": "SAME",
+  "pass": true
+ },
+ "C4": {
+  "n_px": 2559994,
+  "r": 1.0,
+  "p99d": 0.0,
+  "maxd": 0.0,
+  "mean_d": 0.0,
+  "shift": [
+   0,
+   0
+  ],
+  "r_at_best_shift": 1.0,
+  "byte_equal": 1.0,
+  "r_roll": 0.012304317702760166,
+  "verdict": "SAME",
+  "pass": true
+ },
+ "C5": {
+  "n_px": 2559994,
+  "r": 1.0,
+  "p99d": 0.0,
+  "maxd": 0.0,
+  "mean_d": 0.0,
+  "shift": [
+   0,
+   0
+  ],
+  "r_at_best_shift": 1.0,
+  "byte_equal": 1.0,
+  "r_roll": 0.1727893225326633,
+  "verdict": "SAME",
+  "pass": true
+ },
+ "gate_C5": "PASS",
+ "verdicts": {
+  "C3": "PASS",
+  "C4": "PASS",
+  "C5": "PASS",
+  "C1": "PASS",
+  "C2": "PASS"
+ },
+ "step1": "PASS"
+}

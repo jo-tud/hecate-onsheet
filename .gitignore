@@ -1,0 +1,10 @@
+.venv/
+out/
+# left by the README block "Run S in ink-sdk"
+ink-sdk/
+profiles/
+runs/
+render16.npy
+__pycache__/
+*.pyc
+*.pth
