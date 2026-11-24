@@ -6,7 +6,7 @@
 |---|---|---|---|
 | hecate (model code `hecate.py`, checkpoint `hecate_9.6um.pth`) | https://huggingface.co/scrollprize/hecate, revision `9cb86e50` | MIT (Copyright 2026 Vesuvius Challenge), text below | not copied into this tree: `onsheet.py` downloads both files at that revision and checks their sha256. S is a fine-tune of `hecate_9.6um.pth`. |
 | canonical 2 µm ink detector (hecate's base model) | https://huggingface.co/scrollprize/ink_canonical_2um, revision `075855bc` | MIT | not used directly; named because hecate starts from it |
-| ink-sdk (optional second way to run S) | https://github.com/LimeGS/ink-sdk (commit `2df3ab50`) | MIT (Copyright 2026 LimeGS) | not copied and not needed by `run_window.sh`; the README shows how to run S in it |
+| ink-sdk (optional second way to run S) | https://github.com/LimeGS/ink-sdk (commit `40a647a4` of `main`; first tested at `2df3ab50`) | MIT (Copyright 2026 LimeGS) | not copied and not needed by `run_window.sh`; the README shows how to run S in it |
 | VC3D `vc_render_tifxyz` | https://github.com/ScrollPrize/villa, folder `volume-cartographer/` (commit `47111d1a`; source `volume-cartographer/apps/src/vc_render_tifxyz.cpp`) | **GPL-3.0** (`volume-cartographer/LICENSE`; its `NOTICE`: version 3 or later, Copyright 2023 EduceLab). Only villa's root `LICENSE` is MIT. | called as a separate program to render the CT onto the segment. Not copied, not linked and not shipped here: you bring your own build or image. The code in this tree stays MIT. |
 
 ## Data

@@ -10,6 +10,9 @@ made the same way as hecate's (same code, same `predict`), so S can stand in for
   against the organisers' ink labels.
 - **Wall time:** one 15.4 mm window, about **4 min** end to end on one RTX 5090 (247 s: download ~1 min, VC3D render,
   two models, score; `results/f636_fresh_clone_release_tree.json`, `readings.wall`).
+- **GPU memory:** about 2.1 GB peak for `run_window.sh` on the reference window (RTX 5090) and 1.6 to 1.7 GB for
+  `ink-sdk infer` (fp32), as read every 60 s by our job queue, so the true peak can be a little higher. Not tested
+  on a card with less memory.
 - **Download:** 1.6 GB in total. The script fetches 1.1 GB: 0.6 GB of CT chunks (`results/f636_fetch.json`, `gb`)
   and hecate's checkpoint (0.52 GB, 522 576 086 bytes). The S checkpoint (0.52 GB, 522 573 195 bytes) you fetch
   yourself.
@@ -39,6 +42,12 @@ python figure/make_figure.py out/ out/figure.png    # writes figure.png and figu
 
 **You bring the renderer.** This tree does not ship VC3D and has no default for it: `run_window.sh` stops before
 any download, with a message that names the two variables, unless `VC3D_IMAGE` or `VC_RENDER_BIN` is exported.
+Our renders used VC3D's command-line apps built from villa commit `47111d1a` in a Debian 13 docker image (the system
+packages of villa's `volume-cartographer/build_from_src_debian.sh`, without flatboi; binary at `/opt/vc3d/bin`).
+To build one, follow villa's notes at that commit ([Installation Instructions](https://github.com/ScrollPrize/villa/blob/47111d1a31381a5ff2c05046ed3e311b0dbeec64/volume-cartographer/README.md#installation-instructions)):
+`./build_from_src_debian.sh` installs under `/usr/local`, then `export VC_RENDER_BIN=/usr/local/bin/vc_render_tifxyz`.
+Not tested with this tree: villa's script and villa's prebuilt image (the latest villa, not `47111d1a`; and
+`VC3D_IMAGE` expects the binary at `/opt/vc3d/bin`).
 
 `run_window.sh` runs the five steps of `onsheet.py` (`prep`, `fetch`, `render`, `infer` × 2, `score`). Each step
 can run alone; `--seg`, `--r0`, `--c0`, `--size` pick another Paris 4 segment or window (default: the reference
@@ -64,7 +73,7 @@ Baseline: the map of the other reading direction has r 0.134 with the S map. Fil
 `results/f639_ink_sdk_same_map.json` (`pairs.S`, `pairs.PC2`, `pairs.S.r_cross`).
 
 ```
-git clone https://github.com/LimeGS/ink-sdk && git -C ink-sdk checkout 2df3ab50 && pip install -e "./ink-sdk[hecate,fetch]"
+git clone https://github.com/LimeGS/ink-sdk && git -C ink-sdk checkout 40a647a4 && pip install -e "./ink-sdk[hecate,fetch]"
 mkdir -p profiles models/s && cp path/to/hecate_onsheet_S.pth models/s/hecate_onsheet_S.pth
 cp ink-sdk/src/ink_sdk/profiles/hecate-9.6um.toml profiles/hecate-onsheet-s.toml
 # edit profiles/hecate-onsheet-s.toml:
@@ -82,8 +91,9 @@ ink-sdk infer -p hecate-onsheet@s --surface-volume render16.npy --pixel-um 9.6 -
 - **Set `direction`.** A copy that changes only the checkpoint reads the sheet from the other face (r 0.134 with
   the S map, `pairs.S_ckpt_only`): ink-sdk's default is `forward`, and `onsheet.py` reverses a VC3D stack before the
   model sees it. With `direction = "both"` the S map is `probability_reverse.npy`.
-- **What was tested:** ink-sdk at commit `2df3ab50` installed from a clone, fp32, one window (the reference
-  window), the 16-layer `vc_render_tifxyz` stack of `run_window.sh` given as a `.npy` file. **Not tested:** `render.zarr` given directly, ink-sdk's own render (`--tifxyz`),
+- **What was tested:** ink-sdk at commit `2df3ab50` (11-11; no upstream branch holds it any more) and this block as
+  typed at `40a647a4` (11-24, fresh install with torch 2.15.0: the same numbers), installed from a clone, fp32, one
+  window (the reference window), the 16-layer `vc_render_tifxyz` stack of `run_window.sh` given as a `.npy` file. **Not tested:** `render.zarr` given directly, ink-sdk's own render (`--tifxyz`),
   bf16, other windows. `ink-sdk fetch` cannot download S (the copied `[source]` block still names hecate).
 - You still need a render of your segment, so the VC3D limit below stays.
 
@@ -180,3 +190,4 @@ end bins of the figure also hold all mass beyond ±2 sheet spacings.
 Code: MIT (`LICENSE`). S weights: CC BY-NC 4.0, with hecate's MIT notice (`THIRD_PARTY.md`, which also lists the
 licence and source of every input). PHerc. Paris 4 results may appear in prize entries and public repositories;
 they may not go into journal or conference publications before 2027-06-25 (organisers, 2026-11-09).
+The figures and the files in `results/` derive from the CC BY-NC 4.0 data under Credits; MIT covers the code.
