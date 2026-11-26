@@ -104,7 +104,13 @@ and the S map is `runs/s/probability_primary.npy`. Its run block is on the model
 tree). Tested like the copy above, with the profile built into ink-sdk `2df3ab50` and the weights already on disk:
 Pearson r 0.999999 with this tree's S map, every pixel within 1/255, 98.9 % of the pixels byte-equal; the forward
 map of the same run has r 0.134 (`results/f4015_ink_sdk_profile.json`, `C3`). `ink-sdk fetch` and the download of
-the profile file were run with the model page still private (owner's login). **Not tested:** both without a login.
+the profile file were first run with the model page still private (owner's login). On 2026-11-26, with both pages
+public, we ran both again without any login (ink-sdk `40a647a4`, empty folders): the profile file came down with
+its sha256 (`ab28983b…c6f434`), `ink-sdk fetch` downloaded the weights with theirs (`4b84fdf2…05b4f2`), and
+`ink-sdk doctor` printed `[verified] hecate@9.6um-onsheet-s`.
+If `ink-sdk models` already lists `hecate@9.6um-onsheet-s`, skip the download of the profile file: that ink-sdk has
+the profile built in and stops `models`, `fetch`, `doctor`, `inspect` and `infer` with `duplicate profile id` while
+the same file is also in `INK_SDK_PROFILES` (checked on ink-sdk `62fa3b93` with the profile added).
 
 ## Results
 

@@ -44,7 +44,10 @@ pip install -e "./ink-sdk[hecate,fetch]"       # git clone https://github.com/Li
 mkdir -p profiles && hf download jo-tud/hecate-onsheet hecate-9.6um-onsheet-s.toml --local-dir profiles
 export INK_SDK_PROFILES=$PWD/profiles          # remove this file once ink-sdk ships the profile: it refuses a duplicate id
 ```
-then the three lines above.
+then the three lines above. Skip this download if `ink-sdk models` already lists `hecate@9.6um-onsheet-s`: that
+ink-sdk has the profile built in and stops `models`, `fetch`, `doctor`, `inspect` and `infer` with `duplicate profile id`
+while this file is also in `INK_SDK_PROFILES` (we checked this on ink-sdk `62fa3b93` with the profile added as proposed in
+[LimeGS/ink-sdk#41](https://github.com/LimeGS/ink-sdk/issues/41)).
 
 **The S map is `runs/s/probability_primary.npy`** (the `reverse` direction; also in `probability_reverse.npy`).
 S was trained on `vc_render_tifxyz` stacks read in ink-sdk's `reverse` order. The profile runs both directions and
